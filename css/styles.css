@@ -1,5 +1,5 @@
 html {
-    font-family: Courier, monospace;
+    font-family: monospace;
 }
 
 body {
@@ -38,50 +38,76 @@ button:hover {
     cursor: pointer;
 }
 
-input[type="number"],
-input[type="text"] {
-    width: 10em;
-    border-radius: 0.3em;
-    padding-left: 5px;
-    padding-top: 1px;
-}
-
-input {
-    font-family: 'Courier';
-    color: var(--main-color);
-    background-color: var(--bg-color);
-}
-
-input[type="number"]::-webkit-inner-spin-button {
-    opacity: 0.2;
-}
-
 footer {
     position: fixed;
     bottom: 0;
     width: 100%;
     padding: 0.5em;
-    /* Height of the footer */
+    height: auto;
+    font-size: 1vh;
     background: var(--light-gray);
 }
 
-/* #main {
-    padding-top: 0.5em;
-    width: 90%;
-} */
-
-#editor {
-    width: 90%;
-    margin-right: 5%;
-    margin-left: 5%;
+.panel {
     border: solid 1px var(--main-color);
-    resize: none;
+    border-radius: 0.3em;
+    padding: 0.3em;
+    margin-left: 0.5em;
+}
+
+#main {
+    padding-top: 0.5em;
+    display: flex;
+}
+
+#right-panel {
+    width: 90%;
+    margin-right: 0.5em;
     font-size: large;
+}
+
+#editor-wrap {
     height: 90vh;
 }
 
-#editor:focus {
+#tree {
+    width: 10%;
+}
+
+.tab {
+    padding-left: 0.3em;
+    margin-bottom: 0.3em;
+    border-radius: 0.3em;
+}
+
+.tab:hover {
+    background-color: var(--light-gray);
+    cursor: pointer;
+}
+
+#tab-button {
+    width: 60%;
+    margin: auto;
+
+    align-self: center;
+    border-radius: 0.3em;
+    border: solid 1px var(--main-color);
+    cursor: pointer;
+    text-align: center;
+    user-select: none;
+}
+
+#tab-button:hover {
+    background-color: var(--light-gray);
+}
+
+textarea {
+    resize: none;
     outline: none;
+    border: none;
+    font-family: monospace;
+    height: calc(100% - 1px);
+    width: 100%;
 }
 
 .clickable {
@@ -90,4 +116,38 @@ footer {
 
 .text {
     white-space: pre;
+}
+
+input[type=text]:focus {
+    outline: 0px;
+}
+
+input {
+    font-family: monospace;
+    font-size: xx-large;
+    color: var(--main-color);
+    background-color: var(--bg-color);
+    border: solid 1px var(--main-color);
+    border-radius: 0.3rem;
+
+    width: calc(100% - 0.5em);
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.close {
+    float: right;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    border-radius: 0.3em;
+    user-select: none;
+}
+
+.close:hover {
+    background-color: var(--red);
+    color: var(--bg-color);
+}
+
+.current {
+    border: solid 1px var(--middle-color);
 }
