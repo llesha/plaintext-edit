@@ -15,8 +15,9 @@ let noteCount = initNoteCount()
 initNotes()
 
 tabButton.onclick = () => {
-    let tab = createTab("unnamed", noteCount++)
-    localStorage.setItem(noteCountName, noteCount)
+    let tab = createTab("unnamed", noteCount)
+    localStorage.setItem(notePrefix + noteCount, `{ "name": "unnamed", "value": "" }`)
+    localStorage.setItem(noteCountName, ++noteCount)
     setCurrentTab(tab)
 }
 
@@ -67,7 +68,6 @@ function setCurrentTab(tab) {
     if (modified) {
         saveCurrentTab()
     }
-    console.log(window.current)
     window.current.classList.remove("current")
     window.current = tab
     window.current.classList.add("current")
@@ -117,7 +117,6 @@ function initNotes() {
     editor.value = note.value
     window.current = createTab(note.name, 0)
 
-    console.log(noteCount)
     for (let i = 1; i < noteCount; i++) {
         const note = JSON.parse(localStorage.getItem(notePrefix + i))
         createTab(note.name, i)
